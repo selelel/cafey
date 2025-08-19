@@ -1,62 +1,62 @@
-import { cn } from "@/lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from '@/lib/utils';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 // Typography Components
-const textVariants = cva("text-foreground", {
+const textVariants = cva('text-foreground', {
   variants: {
     variant: {
-      body: "text-base",
-      small: "text-sm",
-      large: "text-lg",
-      h1: "text-[40px] md:text-7xl",
-      h2: "text-3xl md:text-[48px]",
-      h3: "text-2xl md:text-[40px]",
-      h4: "text-xl md:text-[32px]",
-      h5: "text-lg md:text-xl",
-      h6: "text-base md:text-lg",
+      body: 'text-base',
+      small: 'text-sm',
+      large: 'text-lg',
+      h1: 'text-[40px] md:text-7xl',
+      h2: 'text-3xl md:text-[48px]',
+      h3: 'text-2xl md:text-[40px]',
+      h4: 'text-xl md:text-[32px]',
+      h5: 'text-lg md:text-xl',
+      h6: 'text-base md:text-lg',
     },
     weight: {
-      normal: "font-normal",
-      medium: "font-medium",
-      semibold: "font-semibold",
-      bold: "font-bold",
-      thin: "font-thin",
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      thin: 'font-thin',
     },
     align: {
-      start: "text-start",
-      center: "text-center",
-      right: "text-right",
-      justify: "text-justify",
+      start: 'text-start',
+      center: 'text-center',
+      right: 'text-right',
+      justify: 'text-justify',
     },
   },
   defaultVariants: {
-    variant: "body",
-    weight: "normal",
-    align: "start",
+    variant: 'body',
+    weight: 'normal',
+    align: 'start',
   },
 });
 
-type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   variant?:
-    | "body"
-    | "small"
-    | "large"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6";
-  weight?: "normal" | "medium" | "semibold" | "bold" | "thin";
-  align?: "start" | "center" | "right" | "justify";
-  as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    | 'body'
+    | 'small'
+    | 'large'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6';
+  weight?: 'normal' | 'medium' | 'semibold' | 'bold' | 'thin';
+  align?: 'start' | 'center' | 'right' | 'justify';
+  as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   children: React.ReactNode;
 }
 
 export const Text = ({
-  as: Component = "p",
+  as: Component = 'p',
   variant,
   weight,
   align,
@@ -64,7 +64,7 @@ export const Text = ({
   ...props
 }: TextProps) => {
   // If variant is a heading, use that as the default component
-  const ComponentToRender = variant?.startsWith("h")
+  const ComponentToRender = variant?.startsWith('h')
     ? (variant as HeadingLevel)
     : Component;
 
@@ -77,11 +77,11 @@ export const Text = ({
 };
 
 // Layout Components
-const mainVariants = cva("flex flex-col items-center min-h-screen", {
+const mainVariants = cva('p-4 overflow-y-auto', {
   variants: {
     container: {
-      true: "container mx-auto px-4",
-      false: "",
+      true: '',
+      false: '',
     },
   },
   defaultVariants: {
@@ -92,11 +92,11 @@ const mainVariants = cva("flex flex-col items-center min-h-screen", {
 export interface MainProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof mainVariants> {
-  as?: "main" | "div";
+  as?: 'main' | 'div';
 }
 
 export const Main = ({
-  as: Component = "main",
+  as: Component = 'main',
   container = true,
   className,
   ...props
@@ -110,12 +110,12 @@ export const Main = ({
 };
 
 const sectionVariants = cva(
-  "w-full py-20 px-4 md:px-[150px] gap-10 max-w-[1440px]",
+  'w-full py-20 px-4 md:px-[150px] gap-10 max-w-[1440px]',
   {
     variants: {
       container: {
-        true: "mx-auto",
-        false: "",
+        true: 'mx-auto',
+        false: '',
       },
     },
     defaultVariants: {
@@ -127,11 +127,11 @@ const sectionVariants = cva(
 export interface SectionProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof sectionVariants> {
-  as?: "section" | "div" | "footer" | "nav";
+  as?: 'section' | 'div' | 'footer' | 'nav';
 }
 
 export const Section = ({
-  as: Component = "section",
+  as: Component = 'section',
   container = true,
   className,
   ...props
@@ -144,29 +144,29 @@ export const Section = ({
   );
 };
 
-const rowVariants = cva("flex flex-row", {
+const rowVariants = cva('flex flex-row', {
   variants: {
     gap: {
-      sm: "gap-2",
-      md: "gap-4",
-      lg: "gap-6",
+      sm: 'gap-2',
+      md: 'gap-4',
+      lg: 'gap-6',
     },
     align: {
-      start: "items-start",
-      center: "items-center",
-      end: "items-end",
+      start: 'items-start',
+      center: 'items-center',
+      end: 'items-end',
     },
     justify: {
-      start: "justify-start",
-      center: "justify-center",
-      end: "justify-end",
-      between: "justify-between",
+      start: 'justify-start',
+      center: 'justify-center',
+      end: 'justify-end',
+      between: 'justify-between',
     },
   },
   defaultVariants: {
-    gap: "md",
-    align: "center",
-    justify: "start",
+    gap: 'md',
+    align: 'center',
+    justify: 'start',
   },
 });
 
@@ -183,22 +183,22 @@ export const Row = ({ gap, align, justify, className, ...props }: RowProps) => {
   );
 };
 
-const colVariants = cva("flex flex-col", {
+const colVariants = cva('flex flex-col', {
   variants: {
     gap: {
-      sm: "gap-2",
-      md: "gap-4",
-      lg: "gap-6",
+      sm: 'gap-2',
+      md: 'gap-4',
+      lg: 'gap-6',
     },
     align: {
-      start: "items-start",
-      center: "items-center",
-      end: "items-end",
+      start: 'items-start',
+      center: 'items-center',
+      end: 'items-end',
     },
   },
   defaultVariants: {
-    gap: "md",
-    align: "start",
+    gap: 'md',
+    align: 'start',
   },
 });
 
@@ -213,6 +213,6 @@ export const Col = ({ gap, align, className, ...props }: ColProps) => {
 };
 
 // Span is just an alias for Text with span as default
-export const Span = (props: Omit<TextProps, "as">) => {
-  return <Text as="span" {...props} />;
+export const Span = (props: Omit<TextProps, 'as'>) => {
+  return <Text as='span' {...props} />;
 };
