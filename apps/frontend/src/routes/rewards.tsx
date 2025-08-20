@@ -1,6 +1,6 @@
 import { Main } from '@/components/commons';
-import CafeCard from '@/components/rewards-component/cafe-card';
-import { Progress } from '@/components/ui/progress';
+import AvailableReward from '@/components/rewards-component/reward-available-reward';
+import CafeCard from '@/components/rewards-component/reward-cafe-card';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/rewards')({
@@ -9,8 +9,9 @@ export const Route = createFileRoute('/rewards')({
 
 function Rewards() {
   return (
-    <Main>
+    <Main className='space-y-6'>
      <CafeCard />
+     <AvailableReward />
     </Main>
     );
 }
