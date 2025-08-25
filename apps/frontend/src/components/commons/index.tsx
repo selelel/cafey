@@ -77,7 +77,7 @@ export const Text = ({
 };
 
 // Layout Components
-const mainVariants = cva('h-full p-4 overflow-y-auto no-scrollbar', {
+const mainVariants = cva('min-h-screen p-4 overflow-y-auto no-scrollbar', {
   variants: {
     container: {
       true: '',

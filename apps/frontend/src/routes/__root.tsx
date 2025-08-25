@@ -1,7 +1,7 @@
 import Header from '@/components/layout/header';
 import Navigation from '@/components/layout/navigation';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+// import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 export const Route = createRootRoute({
   component: () => (
@@ -11,7 +11,7 @@ export const Route = createRootRoute({
         <Outlet />
         <Navigation />
       </div>
-      <TanStackRouterDevtools />
+      {/* <TanStackRouterDevtools /> */}
     </>
   ),
 });
