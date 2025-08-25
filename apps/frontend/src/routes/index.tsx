@@ -1,13 +1,17 @@
+import { Main } from '@/components/commons';
+import AvailableReward from '@/components/rewards-component/reward-available-reward';
+import CafeCard from '@/components/rewards-component/reward-cafe-card';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
-  component: Index,
+  component: Rewards,
 });
 
-function Index() {
+function Rewards() {
   return (
-    <div className='p-2'>
-      <h3>Welcome Cafey!</h3>
-    </div>
-  );
+    <Main className='space-y-6'>
+     <CafeCard />
+     <AvailableReward />
+    </Main>
+    );
 }

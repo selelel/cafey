@@ -9,12 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as TopUpRouteImport } from './routes/top-up'
 import { Route as IndexRouteImport } from './routes/index'
 
-const RewardsRoute = RewardsRouteImport.update({
-  id: '/rewards',
-  path: '/rewards',
+const TopUpRoute = TopUpRouteImport.update({
+  id: '/top-up',
+  path: '/top-up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,37 +25,37 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/rewards': typeof RewardsRoute
+  '/top-up': typeof TopUpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/rewards': typeof RewardsRoute
+  '/top-up': typeof TopUpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/rewards': typeof RewardsRoute
+  '/top-up': typeof TopUpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/rewards'
+  fullPaths: '/' | '/top-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/rewards'
-  id: '__root__' | '/' | '/rewards'
+  to: '/' | '/top-up'
+  id: '__root__' | '/' | '/top-up'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  RewardsRoute: typeof RewardsRoute
+  TopUpRoute: typeof TopUpRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/rewards': {
-      id: '/rewards'
-      path: '/rewards'
-      fullPath: '/rewards'
-      preLoaderRoute: typeof RewardsRouteImport
+    '/top-up': {
+      id: '/top-up'
+      path: '/top-up'
+      fullPath: '/top-up'
+      preLoaderRoute: typeof TopUpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  RewardsRoute: RewardsRoute,
+  TopUpRoute: TopUpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
