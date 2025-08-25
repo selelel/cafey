@@ -70,7 +70,7 @@
   --color-chart-3: #d4c4a8;
   --color-chart-4: #a0845c;
   --color-chart-5: #5a7c65;
-  --radius: .75rem;
+  --radius: 0.75rem;
   --color-sidebar: #faf9f7;
   --color-sidebar-foreground: #3c2a1e;
   --color-sidebar-primary: #6b4e3d;
@@ -158,8 +158,8 @@
 
 @layer utilities {
   .no-scrollbar {
-    -ms-overflow-style: auto;  /* IE and Edge */
-    scrollbar-width: auto;     /* Firefox */
+    -ms-overflow-style: auto; /* IE and Edge */
+    scrollbar-width: auto; /* Firefox */
   }
 
   .no-scrollbar::-webkit-scrollbar,
