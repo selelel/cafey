@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TopUpRouteImport } from './routes/top-up'
+import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TopUpRoute = TopUpRouteImport.update({
   id: '/top-up',
   path: '/top-up',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/payment': typeof PaymentRoute
   '/top-up': typeof TopUpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/payment': typeof PaymentRoute
   '/top-up': typeof TopUpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/payment': typeof PaymentRoute
   '/top-up': typeof TopUpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/top-up'
+  fullPaths: '/' | '/payment' | '/top-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/top-up'
-  id: '__root__' | '/' | '/top-up'
+  to: '/' | '/payment' | '/top-up'
+  id: '__root__' | '/' | '/payment' | '/top-up'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PaymentRoute: typeof PaymentRoute
   TopUpRoute: typeof TopUpRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/top-up'
       fullPath: '/top-up'
       preLoaderRoute: typeof TopUpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PaymentRoute: PaymentRoute,
   TopUpRoute: TopUpRoute,
 }
 export const routeTree = rootRouteImport
