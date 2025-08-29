@@ -6,9 +6,9 @@ import { createRootRoute, Outlet } from '@tanstack/react-router';
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className='relative bg-background mx-auto w-full max-w-md h-screen overflow-hidden'>
+      <div className='relative bg-background mx-auto w-full max-w-md h-screen overflow-hidden flex flex-col'>
         <Header />
-        <Outlet />
+          <Outlet />
         <Navigation />
       </div>
       {/* <TanStackRouterDevtools /> */}

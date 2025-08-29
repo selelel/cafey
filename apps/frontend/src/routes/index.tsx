@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
 
 function Rewards() {
   return (
-    <Main className='space-y-6'>
+    <Main className='space-y-6 p-'>
       <CafeCard />
       <AvailableReward />
     </Main>

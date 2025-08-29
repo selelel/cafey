@@ -75,9 +75,9 @@ export const Text = ({
     />
   );
 };
-
+// className='h-full flex-1 min-h-0 overflow-y-auto pb-20'
 // Layout Components
-const mainVariants = cva('min-h-screen p-4 overflow-y-auto no-scrollbar', {
+const mainVariants = cva('h-full flex-1 min-h-0 overflow-y-auto min-h-screen p-4 pb-36 overflow-y-auto no-scrollbar', {
   variants: {
     container: {
       true: '',

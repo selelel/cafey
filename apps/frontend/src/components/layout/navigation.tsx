@@ -75,7 +75,7 @@ function Navigation() {
           label='Top Up'
           isActive={pathname === '/top-up'}
         />
-        <NavButton to='/payment' icon={<QrCode />} label='Payment' />
+        <NavButton to='/payment' icon={<QrCode />} label='Payment' isActive={pathname === '/payment'}/>
       </div>
     </nav>
   );
