@@ -15,7 +15,7 @@ export function QRTabs() {
     try {
       if (!await ensurePermissions()) return
       if (!camera.current) camera.current = new CameraController()
-      const stream = await camera.current.open({ facingMode: 'environment' })
+      // const stream = await camera.current.open({ facingMode: 'environment' })
       if (videoRef.current) {
         camera.current.attachTo(videoRef.current)
         await camera.current.play(videoRef.current)
